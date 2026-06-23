@@ -1,6 +1,6 @@
 ---
 name: ata-reuniao
-description: Use quando o usuário colar notas soltas de uma reunião e pedir pra organizar, resumir ou montar a ata. Sinais: anotações bagunçadas, tópicos jogados, bullets sem ordem, transcrição de call, "resume essa reunião", "monta a ata", "organiza essas notas".
+description: "Use quando o usuário colar notas soltas de uma reunião e pedir pra organizar, resumir ou montar a ata. Sinais: anotações bagunçadas, tópicos jogados, bullets sem ordem, transcrição de call, 'resume essa reunião', 'monta a ata', 'organiza essas notas'."
 ---
 
 # Ata de Reunião
