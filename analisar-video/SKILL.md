@@ -38,10 +38,17 @@ Nada aqui usa API paga nem pede conta em lugar nenhum. Roda tudo na máquina.
 
 ## Passo 1 — extrair
 
+O `extract.py` mora na pasta desta skill, não na raiz do projeto. Chame ele pelo
+caminho completo:
+
 ```bash
-python extract.py <URL> <PASTA>
-python extract.py --file <VIDEO> <PASTA>   # vídeo que já está no disco
+python .claude/skills/analisar-video/extract.py <URL> <PASTA>
+python .claude/skills/analisar-video/extract.py --file <VIDEO> <PASTA>
 ```
+
+Se a skill estiver instalada em `~/.claude/skills/`, é o mesmo comando com esse
+caminho. Escolha uma `<PASTA>` de trabalho fora da pasta da skill, tipo
+`analise/<nome-do-video>/`: é lá que caem o vídeo, as imagens e a transcrição.
 
 Opções: `--model` (tamanho do modelo, padrão `medium`), `--scene` (sensibilidade do
 corte, padrão `0.30`), `--max-frames` (teto de imagens, padrão `24`),
@@ -131,7 +138,7 @@ Post privado, post sem vídeo, ou o site mudou o formato. A saída que funciona
 sempre, inclusive pra vídeo que nunca esteve na internet:
 
 ```bash
-python extract.py --file <arquivo> <PASTA>
+python .claude/skills/analisar-video/extract.py --file <arquivo> <PASTA>
 ```
 
 Baixe o vídeo do jeito que conseguir e passe o arquivo. Da extração pra frente é

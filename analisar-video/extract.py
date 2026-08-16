@@ -9,9 +9,9 @@ Por que corte e nao frame de N em N segundos: amostragem cega devolve quadro
 aleatorio. Corte por troca de imagem devolve a decisao que o editor tomou.
 
 Uso:
-  python extract.py <URL> <PASTA>
-  python extract.py --file <VIDEO> <PASTA>      # video que ja esta no seu disco
-  python extract.py <URL> <PASTA> --no-transcribe
+  python .claude/skills/analisar-video/extract.py <URL> <PASTA>
+  python .claude/skills/analisar-video/extract.py --file <VIDEO> <PASTA>      # video que ja esta no seu disco
+  python .claude/skills/analisar-video/extract.py <URL> <PASTA> --no-transcribe
 
 Opcoes:
   --model medium     tamanho do modelo de transcricao (tiny/base/small/medium/large-v3)
@@ -32,16 +32,11 @@ import html as htmllib
 import importlib.util
 import json
 import os
-import platform
 import re
 import shutil
 import subprocess
 import sys
 import urllib.parse
-
-# UA de browser: o CDN do Instagram devolve 403 sem ele.
-BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-              "(KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36")
 
 FFMPEG_INSTALL = {
     "Windows": "winget install ffmpeg",
@@ -85,14 +80,14 @@ def preflight(url, quer_transcrever):
              ["pip install curl_cffi",
               "",
               "Ou baixe o video na mao e rode com:",
-              "  python extract.py --file <arquivo> <pasta>"])
+              f"  python {sys.argv[0]} --file <arquivo> <pasta>"])
 
     if url and pick_resolver(url) == "ytdlp" and not has_module("yt_dlp"):
         stop("Falta o yt-dlp pra baixar do YouTube/TikTok.",
              ["pip install yt-dlp",
               "",
               "Ou baixe o video na mao e rode com:",
-              "  python extract.py --file <arquivo> <pasta>"])
+              f"  python {sys.argv[0]} --file <arquivo> <pasta>"])
 
     if quer_transcrever and not has_module("faster_whisper"):
         print("\n  AVISO: faster-whisper nao esta instalado.", file=sys.stderr)
@@ -348,7 +343,7 @@ def main():
                   file=sys.stderr)
             print("  Saida que sempre funciona: baixe o video na mao e rode\n",
                   file=sys.stderr)
-            print(f"    python extract.py --file <arquivo> {args.out_dir}\n",
+            print(f"    python {sys.argv[0]} --file <arquivo> {args.out_dir}\n",
                   file=sys.stderr)
             sys.exit(2)
         print(f"      ok via {method}: {os.path.basename(video)}")
