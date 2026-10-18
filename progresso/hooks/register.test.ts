@@ -6,11 +6,11 @@ const RAIZ = 'C:\\Users\\ana\\loja'
 const P = RAIZ.replace(/\\/g, '/')
 
 /** Um projeto em memória: caminho do arquivo -> texto. */
-function projeto(on: On, arquivos: Readonly<Record<string, string>>): void {
+function projeto(on: On, arquivos: Readonly<Record<string, string>>, recusaComando = false): void {
   const n = (c: string): string => c.replace(/\\/g, '/')
   const abs: Record<string, string> = Object.fromEntries(Object.entries(arquivos).map(([k, v]) => [`${P}/${k}`, v]))
   on('session.root', () => ({ value: RAIZ }))
-  on('command.register', () => ({ value: { command: 'progresso' } }))
+  on('command.register', () => (recusaComando ? { deny: 'it is the plugin skill /progresso:progresso' } : { value: { command: 'progresso' } }))
   on('session.start', (_$, e) => ({ cwd: e.cwd }))
   on('fs.stat', (_$, e) => {
     const t = abs[n(e.path)]
@@ -77,4 +77,12 @@ test('a opção nome entra na regra', { options: { nome: 'Ana' } }, async ($, on
   await abrir($)
   const r = await $.prompt.compose(COMPOSE)
   expect(r.sections.find((s) => s.id === 'progresso:regra')?.text).toContain('quem: <Ana |')
+})
+
+test('nome /progresso tomado: o mod segue lendo o plano e pondo a regra', async ($, on) => {
+  projeto(on, { 'progresso.md': '## A\n- [ ] um' }, true)
+  on('prompt.compose', () => ({ sections: [] }))
+  await abrir($)
+  const r = await $.prompt.compose(COMPOSE)
+  expect(r.sections.find((s) => s.id === 'progresso:regra')).toBeDefined()
 })

@@ -1,6 +1,6 @@
 {
   "name": "progresso",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Barra de progresso dos teus planos acima do prompt e painel /progresso: o que foi feito, o que falta e qual é a próxima etapa",
   "author": { "name": "JP Labs", "url": "https://github.com/thejplabs-ai" },
   "homepage": "https://github.com/thejplabs-ai/jp-labs-skills/tree/main/progresso",

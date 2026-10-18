@@ -133,7 +133,8 @@ export const register: Register = (on, options) => {
   const REGRA = regra(nome || 'você')
 
   on('session.start', async ($, e, next) => {
-    await $.command.register({ name: 'progresso', description: 'Abre o painel com o que foi feito e o que falta de cada PRD' })
+    // nome tomado (outra skill ou plugin): fica sem o comando, mas a faixa e a regra seguem
+    await $.command.register({ name: 'progresso', description: 'Abre o painel com o que foi feito e o que falta de cada plano' }).catch(() => undefined)
     raiz = await $.session.root()
     await reler($)
     await conferePRs($)
