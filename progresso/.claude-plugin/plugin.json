@@ -1,0 +1,17 @@
+{
+  "name": "progresso",
+  "version": "1.0.0",
+  "description": "Barra de progresso dos teus planos acima do prompt e painel /progresso: o que foi feito, o que falta e qual é a próxima etapa",
+  "author": { "name": "JP Labs", "url": "https://github.com/thejplabs-ai" },
+  "homepage": "https://github.com/thejplabs-ai/jp-labs-skills/tree/main/progresso",
+  "license": "MIT",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "nome": {
+      "type": "string",
+      "title": "Teu nome no quem:",
+      "description": "Item com quem: <esse nome> conta como esperando você (além de você, eu e me). Pode deixar vazio.",
+      "default": ""
+    }
+  }
+}
