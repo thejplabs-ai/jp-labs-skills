@@ -1,5 +1,5 @@
 ---
-name: progresso
+name: progresso-md
 description: "Cria e mantém o progresso.md de um plano (PRD, spec, roadmap, lista de tarefas grande), o arquivo que o mod progresso mostra na faixa acima do prompt e no painel /progresso. Use sempre que montar um plano com mais de uma etapa, quando o usuário pedir pra acompanhar o progresso de um plano, ou quando o estado de um item do plano mudar."
 ---
 
