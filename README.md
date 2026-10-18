@@ -8,6 +8,16 @@ Cada vídeo adiciona uma skill aqui. Pega, usa, adapta pra sua marca.
 - **analisar-video** — dá olhos pro Claude. Baixa um vídeo, corta em imagens exatamente onde a imagem muda, transcreve o áudio na sua máquina e decompõe o que foi dito e como foi feito. Serve pra Reel, Short, TikTok, YouTube ou arquivo do seu disco. Roda local, sem API paga e sem conta em lugar nenhum.
 - **ata-reuniao** — transforma notas bagunçadas de reunião numa ata profissional em HTML, pronta pra salvar como PDF. (Parte 2: Skills)
 
+## Mods
+
+- **progresso** — barra de progresso dos teus planos acima do prompt e painel `/progresso`: o que foi feito, o que falta e qual é a próxima etapa. O Claude mantém sozinho. [Detalhes e o que ele acessa](progresso/README.md).
+
+Mod instala com um comando, dentro do Claude Code:
+
+```
+/plugin install progresso --marketplace thejplabs-ai/jp-labs-skills
+```
+
 ## Como instalar uma skill
 
 Duas formas.

@@ -1,0 +1,15 @@
+{
+  "name": "jp-labs-skills",
+  "description": "Skills e mods pro Claude Code, do JP Labs",
+  "owner": {
+    "name": "JP Labs",
+    "url": "https://github.com/thejplabs-ai"
+  },
+  "plugins": [
+    {
+      "name": "progresso",
+      "source": "./progresso",
+      "description": "Barra de progresso dos teus planos acima do prompt e painel /progresso"
+    }
+  ]
+}
