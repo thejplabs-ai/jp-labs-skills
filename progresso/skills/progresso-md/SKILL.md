@@ -21,6 +21,7 @@ Se o projeto já tem uma pasta de planos combinada com o usuário, pergunte ante
 
 ```markdown
 # Progresso: <título do plano>
+task: TI-123
 
 ## L0 <primeira fase>
 - [x] Plano escrito e aprovado
@@ -32,6 +33,10 @@ Se o projeto já tem uma pasta de planos combinada com o usuário, pergunte ante
 - [ ] <entrega>  pr:12
 ```
 
+- `task: <ID>`, opcional, logo abaixo do título: a task do tracker que este plano entrega (no
+  cba-ti, a mãe). Escreva quando o usuário der o ID ou o projeto já tiver a task; não invente.
+  A branch do trabalho começa com esse ID em minúsculas: `task: TI-123` vira `ti-123-slug`.
+  Se o ID mudar (a mãe ganhou outro número), troque a linha no mesmo passo.
 - `##` = uma fase ou lote do plano, na ordem de execução. A primeira palavra do título vira o
   rótulo curto na faixa (`L0`, `Fase1`).
 - Um item por entrega concreta, no idioma do projeto.

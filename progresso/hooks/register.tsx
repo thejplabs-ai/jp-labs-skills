@@ -27,6 +27,7 @@ const regra = (voce: string): string => [
   'Este projeto acompanha os planos em arquivos `progresso.md` (na raiz, ou em `plans/<plano>/`), que o usuário lê numa faixa acima do prompt e no /progresso.',
   `Mantenha-os verdadeiros no mesmo passo em que o estado muda: começou um item -> \`[~]\`; ficou esperando alguém -> \`[!]\` com \`quem: <${voce} | pessoa | data>\` no fim;`,
   'terminou -> `[x]` com a evidência na linha (`pr:N`, hash, data). Só marque `[x]` com teste ou prova feitos nesta sessão. Item novo que surgir entra no lote certo.',
+  'Se o plano tem uma linha `task: <ID>` logo abaixo do título, a branch do trabalho começa com esse ID em minúsculas (`task: TI-123` -> `ti-123-slug`).',
 ].join(' ')
 
 // marca JP Labs v4.1: 1 acento, âmbar só em ação

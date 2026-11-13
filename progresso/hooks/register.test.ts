@@ -61,6 +61,8 @@ test('os três juntos, com a regra no prompt', async ($, on) => {
   const r = await $.prompt.compose(COMPOSE)
   const regra = r.sections.find((s) => s.id === 'progresso:regra')
   expect(regra?.text).toContain('quem: <você |')
+  // a linha `task:` liga o plano a uma task de tracker, e o nome da branch sai dela
+  expect(regra?.text).toContain('`task: <ID>`')
 })
 
 test('sem progresso.md: sem regra no prompt, e o /progresso ensina a criar', async ($, on) => {
