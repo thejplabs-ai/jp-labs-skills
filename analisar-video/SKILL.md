@@ -21,15 +21,29 @@ o que uma demo de produto mostra na tela.
 
 ## Antes de rodar
 
-O script confere as dependências sozinho e diz o que fazer se faltar alguma. Se
-ele reclamar, **ofereça instalar pra pessoa** em vez de mandar ela se virar.
+O script confere as dependências sozinho e diz o que falta. Se ele reclamar,
+**instale você mesmo o que faltar**, dizendo à pessoa em uma linha o que está
+instalando e pra quê, e rode de novo. Não mande ela se virar.
 
 | Programa | Pra quê | Instalar |
 |---|---|---|
 | ffmpeg | corta o vídeo em imagem. Obrigatório | `winget install ffmpeg` · `brew install ffmpeg` · `sudo apt install ffmpeg` |
 | curl_cffi | baixar do Instagram | `pip install curl_cffi` |
 | yt-dlp | baixar do YouTube, Shorts e TikTok | `pip install yt-dlp` |
-| faster-whisper | transcrever o áudio | `pip install faster-whisper` |
+| faster-whisper | transcrever o áudio | `pip install faster-whisper "av<19"` |
+
+**Instale os pacotes Python num ambiente só das skills**, não no Python do sistema. No Mac
+com Homebrew e no Linux recente, `pip install` direto é bloqueado (erro
+`externally-managed-environment`). Crie uma vez e use sempre:
+
+```bash
+python3 -m venv ~/.jp-labs-skills/venv
+~/.jp-labs-skills/venv/bin/pip install faster-whisper "av<19" yt-dlp curl_cffi
+```
+
+No Windows o Python fica em `%USERPROFILE%\.jp-labs-skills\venv\Scripts\python.exe`. Daí
+pra frente rode o `extract.py` com o Python desse ambiente. O `"av<19"` é obrigatório: o PyAV
+19 quebrou o faster-whisper 1.2.1 (`unexpected keyword argument 'metadata_errors'`).
 
 Sem o faster-whisper o script ainda roda: entrega as imagens e avisa que ficou sem
 transcrição. Na primeira transcrição ele baixa o modelo (alguns minutos, uma vez só).

@@ -7,6 +7,7 @@ Cada vídeo adiciona uma skill aqui. Pega, usa, adapta pra sua marca.
 
 - **analisar-video** — dá olhos pro Claude. Baixa um vídeo, corta em imagens exatamente onde a imagem muda, transcreve o áudio na sua máquina e decompõe o que foi dito e como foi feito. Serve pra Reel, Short, TikTok, YouTube ou arquivo do seu disco. Roda local, sem API paga e sem conta em lugar nenhum.
 - **ata-reuniao** — transforma notas bagunçadas de reunião numa ata profissional em HTML, pronta pra salvar como PDF. (Parte 2: Skills)
+- **radar**: acha o reel que fugiu da média do próprio criador, não o de mais views. Você dá a lista de perfis do Instagram que quer vigiar, ele busca os reels recentes, assiste os melhores com o `analisar-video` e entrega uma shortlist com o porquê de cada um. Precisa de uma conta grátis na [Apify](https://apify.com) (o plano grátis dá 5 dólares por mês; 10 perfis custam uns 40 centavos de dólar por busca).
 - **grill**: antes de fazer, o Claude te entrevista. Uma pergunta por vez, com a resposta que ele recomenda, até vocês dois entenderem a mesma coisa. Use com `/grill` antes de qualquer tarefa que tenha mais de um jeito de fazer. Baseada na skill do [Matt Pocock](https://github.com/mattpocock/skills) (MIT).
 
 ## Mods
