@@ -92,7 +92,7 @@ def preflight(url, quer_transcrever):
     if quer_transcrever and not has_module("faster_whisper"):
         print("\n  AVISO: faster-whisper nao esta instalado.", file=sys.stderr)
         print("  Seguindo SEM transcricao: voce vai receber so as imagens.", file=sys.stderr)
-        print("  Para ter a transcricao tambem: pip install faster-whisper\n", file=sys.stderr)
+        print('  Para ter a transcricao tambem: pip install faster-whisper "av<19"\n', file=sys.stderr)
         return False
     return quer_transcrever
 
