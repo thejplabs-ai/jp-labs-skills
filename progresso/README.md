@@ -42,6 +42,7 @@ O mod procura `progresso.md` na raiz do projeto, em `plans/<plano>/` e em
 
 ```markdown
 # Progresso: Loja nova
+task: TI-123
 
 ## L0 Base
 - [x] Plano aprovado
@@ -51,6 +52,11 @@ O mod procura `progresso.md` na raiz do projeto, em `plans/<plano>/` e em
 ```
 
 `[ ]` falta · `[~]` andando · `[!]` esperando alguém (`quem:` no fim) · `[x]` feito.
+
+**`task:`** (opcional): a task do teu tracker que o plano entrega. O Claude nomeia a branch com
+ela (`task: TI-123` vira `ti-123-slug`), e quem liga PR a task pela branch passa a ligar sozinho.
+
+**Atualizar:** `/plugin update progresso` e reabre o Claude Code.
 
 **Teu nome no `quem:`** (opcional): por padrão `quem: você`, `eu` ou `me` contam como esperando
 você. Se você escreve o teu nome, coloca ele em `/config`, na linha do `progresso`.

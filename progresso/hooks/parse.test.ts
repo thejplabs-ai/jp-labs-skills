@@ -82,3 +82,10 @@ test('barra: proporcional, sempre na largura pedida', () => {
   expect(barra(0, 0, 4)).toEqual({ cheio: '', vazio: '░░░░' })
   expect(barra(3, 3, 5).cheio.length + barra(3, 3, 5).vazio.length).toBe(5)
 })
+
+test('a linha task: abaixo do titulo nao vira item nem lote', () => {
+  const s = parseProgresso('x', '# Progresso: Quebra\ntask: TI-270\n\n## L0\n- [x] um', 1)
+  expect(s.titulo).toBe('Quebra')
+  expect(s.lotes.length).toBe(1)
+  expect(s.lotes[0]?.itens.length).toBe(1)
+})
